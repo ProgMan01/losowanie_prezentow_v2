@@ -28,4 +28,6 @@ cd losowanie_prezentow
 ```
 
 2. Instalacja zależności:
+```bash
 npm install
+```
