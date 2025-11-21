@@ -25,6 +25,7 @@ Zbudowana w **Next.js (App Router) + Tailwind CSS + MongoDB Atlas**.
 ```bash
 git clone https://github.com/TwojUser/losowanie_prezentow.git
 cd losowanie_prezentow
+```
 
 2. Instalacja zależności:
 npm install
