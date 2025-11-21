@@ -1,11 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -- Zaczyna się customowy CSS -- */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* W trybie ciemnym używamy głębszego koloru, np. bardzo ciemny granat */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0a0a1a; /* Głębszy granat */
     --foreground: #ededed;
   }
 }
@@ -18,8 +25,9 @@ body {
 
 body {
   color: var(--foreground);
+  /* Używamy świątecznej czcionki, np. 'Georgia' lub 'Merriweather' zamiast Arial */
+  font-family: 'Georgia', serif; 
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,50 +49,47 @@ a {
   }
 }
 
+/* --- ANIMACJA PŁATKÓW ŚNIEGU (Poprawiona) --- */
 @keyframes snow {
-  0% { transform: translateY(-10px) rotate(0deg); }
-  100% { transform: translateY(100vh) rotate(360deg); }
+  0% { transform: translateY(-10px) translateX(0) rotate(0deg); opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh) translateX(5vw) rotate(360deg); opacity: 0.5; }
 }
 
 .snowflake {
   position: fixed;
   top: -10px;
-  z-index: 50;
-  font-size: 1rem;
-  color: white;
+  z-index: 50; /* Ważne, aby płatki były nad tłem obrazkowym, ale pod kartą */
+  font-size: 1.5rem; /* Większe płatki */
+  color: rgba(255, 255, 255, 0.9); /* Prawie biały */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* Dodanie lekkiego blasku */
   pointer-events: none;
   animation: snow linear infinite;
-  opacity: 0.8;
 }
 
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-    --foreground: #ededed;
-  }
+/* --- EFEKT 'BLASKU ŚWIĄTECZNEJ KARTY' --- */
+.christmas-card-glow {
+    box-shadow: 
+        0 0 20px rgba(255, 100, 100, 0.5), /* Czerwony blask */
+        0 0 40px rgba(255, 150, 0, 0.2); /* Złoty akcent */
+    transition: all 0.3s ease-in-out;
 }
 
+/* Subtelny efekt 3D na najechaniu */
+.christmas-card-glow:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 
+        0 10px 30px rgba(255, 100, 100, 0.7), 
+        0 5px 15px rgba(0, 0, 0, 0.2), /* Lepszy cień poniżej */
+        0 0 60px rgba(255, 150, 0, 0.3);
+}
 
+/* Utrzymujemy resztę stylów */
 a, button {
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 a:hover, button:hover {
   transform: scale(1.05);
 }
-
-
-.card {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  border-radius: 1rem;
-  background-color: var(--background);
-  padding: 1rem;
-}
-
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
