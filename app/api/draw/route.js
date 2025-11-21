@@ -1,4 +1,5 @@
 import { getDrawsCollection } from "@/lib/db";
+import { sendDrawEmail } from "@/lib/emailservice";
 
 export async function POST(req) {
   try {
@@ -25,7 +26,7 @@ export async function POST(req) {
       );
     }
 
-    // 3. Zapis losowania do bazy
+    // 3. Przygotowanie dokumentu do zapisu
     const doc = {
       drawerEmail,
       drawerName,
@@ -34,9 +35,18 @@ export async function POST(req) {
       createdAt: new Date(),
     };
 
+    // 4. Zapis do bazy~~
     await draws.insertOne(doc);
 
-    // 4. Zwracamy wynik - osoba 4 przechwyci to i wyśle maila
+    // 5. Wysyłka maila — Twoja część
+    await sendDrawEmail({
+      to: drawerEmail,
+      drawerName,
+      receiverName,
+      receiverEmail,
+    });
+
+    // 6. Zwracamy wynik
     return Response.json({ success: true, result: doc });
   } catch (err) {
     console.error("Błąd API /draw:", err);
