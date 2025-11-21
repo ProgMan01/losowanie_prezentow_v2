@@ -1,11 +1,36 @@
 // app/page.js
-import DrawForm from '@/components/DrawForm'; // <-- DODAJ TEN IMPORT
+import DrawForm from '@/components/DrawForm';
+
+// Funkcja pomocnicza do generowania losowych płatków śniegu
+// Przywrócona!
+const createSnowflakes = () => {
+  const snowflakes = [];
+  // Generujemy np. 50 płatków
+  for (let i = 0; i < 50; i++) {
+    snowflakes.push(
+      <div 
+        key={i} 
+        className="snowflake text-2xl" 
+        style={{
+          left: `${Math.random() * 100}vw`,
+          animationDuration: `${Math.random() * 10 + 5}s`, 
+          animationDelay: `-${Math.random() * 10}s`, 
+          opacity: `${Math.random() * 0.5 + 0.5}`, 
+        }}
+      >
+        ❅
+      </div>
+    );
+  }
+  return snowflakes;
+};
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center bg-red-50 dark:bg-gray-900 p-6 overflow-hidden">
+    // Używamy ciemnego tła dla dark mode: ciemny granat (dark:bg-gray-950)
+    <main className="relative min-h-screen flex flex-col items-center justify-center bg-red-50 dark:bg-gray-950 p-6 overflow-hidden">
       
-      {/* Tło świąteczne */}
+      {/* 🖼️ Tło świąteczne z public/snow-bg.png */}
       <div
         className="absolute inset-0 opacity-100 pointer-events-none blur-sm"
         style={{
@@ -16,30 +41,43 @@ export default function Home() {
         }}
       ></div>
 
-      {/* Logo */}
+      {/* ❄️ Magiczny Efekt Śniegu (Dynamiczne płatki) */}
+      <div className="absolute inset-0 pointer-events-none">
+          {createSnowflakes()}
+      </div>
+
+      {/* Logo z lepszym cieniem i marginesem */}
       <img
         src="/logo.png"
         alt="Logo firmy"
-        className="mx-auto mb-6 w-32 h-auto relative z-10"
+        className="mx-auto mb-8 w-36 h-auto relative z-10 filter drop-shadow-lg" 
       />
 
-      {/* Karta główna */}
-      <div className="relative z-10 text-center max-w-md bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-red-200 dark:border-red-700">
-        <h1 className="text-4xl font-bold text-red-600 mb-4">
+      {/* 🎁 Karta Główna - Zachowane ulepszenia wizualne */}
+      <div className="relative z-10 text-center max-w-md bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm rounded-[30px] shadow-2xl p-8 border-4 border-double border-red-400 dark:border-red-600 christmas-card-glow"> 
+        
+        {/* Tytuł z Gradientem */}
+        <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800 dark:from-red-400 dark:to-red-600 mb-4 tracking-tight">
           🎁 Losowanie Prezentów
         </h1>
 
-        <p className="text-gray-700 dark:text-gray-300 mb-6">
-          Wprowadź swój służbowy adres e-mail, aby wylosować osobę, której zrobisz prezent. Pamiętaj: **każda osoba losuje tylko raz!**
+        {/* Podtytuł */}
+        <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 italic">
+          Wprowadź swój służbowy e-mail, aby wylosować osobę!
+        </p>
+        
+        <p className="text-sm text-gray-600 dark:text-gray-400 font-semibold border-b pb-4 mb-6 border-red-100 dark:border-red-800">
+          Pamiętaj: <strong className="text-red-700 dark:text-red-300">każda osoba losuje tylko raz!</strong>
         </p>
 
-        {/* INTEGRACJA FORMULARZA LOSOWANIA (Zastępuje placeholder) */}
+        {/* Formularz losowania */}
         <div className="mt-6">
-          <DrawForm /> {/* <-- UŻYCIE KOMPONENTU Z LOGIKĄ */}
+          <DrawForm />
         </div>
 
-        <footer className="mt-6 text-xs text-gray-500 dark:text-gray-400">
-          © 2025 Firma – Wersja testowa
+        {/* Footer */}
+        <footer className="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400">
+          © 2025 Praktyki – <span className="font-bold text-red-500">Wesołych Świąt!</span>
         </footer>
       </div>
     </main>
