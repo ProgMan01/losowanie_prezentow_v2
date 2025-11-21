@@ -1,5 +1,5 @@
 import { getDrawsCollection } from "@/lib/db";
-import { sendDrawEmail } from "@/lib/emailservice";
+import { sendDrawEmail } from "@/lib/emailService";
 
 export async function POST(req) {
   try {
