@@ -41,7 +41,50 @@ a {
   }
 }
 
+@keyframes snow {
+  0% { transform: translateY(-10px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+.snowflake {
+  position: fixed;
+  top: -10px;
+  z-index: 50;
+  font-size: 1rem;
+  color: white;
+  pointer-events: none;
+  animation: snow linear infinite;
+  opacity: 0.8;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    --foreground: #ededed;
+  }
+}
+
+
+a, button {
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover, button:hover {
+  transform: scale(1.05);
+}
+
+
+.card {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 1rem;
+  background-color: var(--background);
+  padding: 1rem;
+}
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
