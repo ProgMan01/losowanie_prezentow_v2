@@ -15,7 +15,7 @@ Zbudowana w **Next.js (App Router) + Tailwind CSS + MongoDB Atlas**.
   - zapisany w bazie MongoDB,
   - wyświetlany wyłącznie dla losującego,
   - wysyłany e-mailem do losującego.
-
+s
 ---
 
 ## Instrukcja uruchomienia
