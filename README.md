@@ -31,3 +31,13 @@ cd losowanie_prezentow
 ```bash
 npm install
 ```
+
+3. Utworzenie pliku .env i wprowadzenie zmiennych środowiskowych:
+```bash
+MONGODB_URI=<Twój URI MongoDB Atlas>
+SMTP_HOST=<adres serwera SMTP>
+SMTP_PORT=<port SMTP>
+SMTP_USER=<login SMTP>
+SMTP_PASS=<hasło SMTP>
+EMAIL_FROM=losowania@itmakeovers.com.pl
+```
