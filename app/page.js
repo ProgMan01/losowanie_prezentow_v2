@@ -1,3 +1,6 @@
+// app/page.js
+import DrawForm from '@/components/DrawForm'; // <-- DODAJ TEN IMPORT
+
 export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center bg-red-50 dark:bg-gray-900 p-6 overflow-hidden">
@@ -27,18 +30,12 @@ export default function Home() {
         </h1>
 
         <p className="text-gray-700 dark:text-gray-300 mb-6">
-          Prosta aplikacja do Secret Santa.  
-          W kolejnym etapie dodamy formularz logowania i losowania.
+          Wprowadź swój służbowy adres e-mail, aby wylosować osobę, której zrobisz prezent. Pamiętaj: **każda osoba losuje tylko raz!**
         </p>
 
-        {/* Placeholder na formularz */}
+        {/* INTEGRACJA FORMULARZA LOSOWANIA (Zastępuje placeholder) */}
         <div className="mt-6">
-          <button
-            className="w-full py-3 px-4 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-colors cursor-not-allowed"
-            disabled
-          >
-            Formularz logowania/losowania pojawi się tutaj
-          </button>
+          <DrawForm /> {/* <-- UŻYCIE KOMPONENTU Z LOGIKĄ */}
         </div>
 
         <footer className="mt-6 text-xs text-gray-500 dark:text-gray-400">
