@@ -1,0 +1,8 @@
+[
+  { "name": "Jan Kowalski", "email": "jan.kowalski@example.com" },
+  { "name": "Anna Nowak", "email": "anna.nowak@example.com" },
+  { "name": "Piotr Zieliński", "email": "piotr.zielinski@example.com" },
+  { "name": "Ewa Krawczyk", "email": "ewa.krawczyk@example.com" },
+  { "name": "Krzysztof Lasota", "email": "krzysztof.lasota@example.com" },
+  { "name": "Maria Wójcik", "email": "maria.wojcik@example.com" }
+]
