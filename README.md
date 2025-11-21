@@ -41,3 +41,15 @@ SMTP_USER=<login SMTP>
 SMTP_PASS=<hasło SMTP>
 EMAIL_FROM=losowania@itmakeovers.com.pl
 ```
+
+W repozytorium powinien być też plik .env.example z listą wymaganych zmiennych (bez wartości).
+
+4. Uruchomienie aplikacji w trybie deweloperskim:
+```bash
+npm run dev
+```
+
+5. Otwórz przeglądarkę i przejdź na adres:
+```bash
+http://localhost:3000
+```
