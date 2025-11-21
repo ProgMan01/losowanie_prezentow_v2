@@ -1,5 +1,6 @@
 import { getDrawsCollection } from "@/lib/db";
-import { sendDrawEmail } from "@/lib/emailService";
+// POPRAWKA: Zmieniamy "sendDrawEmail" na "sendDrawResultEmail" (zgodnie z sugestią Turbopacka)
+import { sendDrawResultEmail } from "@/lib/emailService"; 
 
 export async function POST(req) {
   try {
@@ -35,11 +36,11 @@ export async function POST(req) {
       createdAt: new Date(),
     };
 
-    // 4. Zapis do bazy~~
+    // 4. Zapis do bazy
     await draws.insertOne(doc);
 
-    // 5. Wysyłka maila — Twoja część
-    await sendDrawEmail({
+    // 5. Wysyłka maila — ZMIENIONA nazwa funkcji
+    await sendDrawResultEmail({
       to: drawerEmail,
       drawerName,
       receiverName,
