@@ -68,7 +68,7 @@ export default function DrawPage() {
 
                 {/* Opis */}
                 <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
-                    Wprowadź swój **zarejestrowany** e-mail, aby poznać, komu robisz prezent!
+                    Wprowadź swój zarejestrowany e-mail, aby poznać, komu robisz prezent!
                 </p>
 
                 {/* Komponent formularza losowania */}

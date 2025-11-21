@@ -26,8 +26,8 @@ body {
 
 body {
   color: var(--foreground);
-  /* Używamy świątecznej czcionki, np. 'Georgia' lub 'Merriweather' zamiast Arial */
-  font-family: 'Georgia', serif; 
+  /* ZMIANA: Używamy czcionki Source Sans 3 załadowanej przez Next/font */
+  font-family: var(--font-source-sans-3), sans-serif; 
   background: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -86,7 +86,7 @@ a {
 }
 
 /* Właściwości 'hover' dla linków są już domyślnie obsłużone przez Tailwind, 
-   a to, co było poniżej, zostanie zastosowane do linków wewnątrz. */
+   a to, co było poniżej, zostanie zastosowane do linków wewnątrz. */
 a, button {
   transition: all 0.2s ease-in-out;
   cursor: pointer;

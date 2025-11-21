@@ -65,7 +65,7 @@ export default function HomePage() {
                     - whitespace-nowrap wymusza jedną linię.
                 */}
                 <h1 className="text-xl sm:text-4xl font-extrabold text-red-600 dark:text-red-400 mb-4 tracking-tight whitespace-nowrap">
-                    🎄 Sekretny Mikołaj 🎅
+                    🎄 Secret Santa 🎅
                 </h1>
 
                 {/* Opis */}
