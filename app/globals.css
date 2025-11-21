@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* -- Zaczyna się customowy CSS -- */
 
 :root {
@@ -77,19 +78,21 @@ a {
 
 /* Subtelny efekt 3D na najechaniu */
 .christmas-card-glow:hover {
-    transform: translateY(-2px) scale(1.01);
+    /* USUNIĘTO: transform: translateY(-2px) scale(1.01); aby karta główna się nie ruszała */
     box-shadow: 
         0 10px 30px rgba(255, 100, 100, 0.7), 
         0 5px 15px rgba(0, 0, 0, 0.2), /* Lepszy cień poniżej */
         0 0 60px rgba(255, 150, 0, 0.3);
 }
 
-/* Utrzymujemy resztę stylów */
+/* Właściwości 'hover' dla linków są już domyślnie obsłużone przez Tailwind, 
+   a to, co było poniżej, zostanie zastosowane do linków wewnątrz. */
 a, button {
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 
+/* Tutaj również usuwamy 'transform' - zostawiamy tylko 'scale', aby nie wpływało na układ */
 a:hover, button:hover {
-  transform: scale(1.05);
+  transform: scale(1.02); /* Lekkie skalowanie bez przesunięcia Y */
 }
